@@ -1,0 +1,15 @@
+{
+  "name": "slide-deck",
+  "private": true,
+  "type": "module",
+  "description": "SlideSpec JSON → editable PPTX pipeline for the slide-deck Cursor plugin",
+  "scripts": {
+    "validate": "node scripts/validate_spec.mjs",
+    "export": "node scripts/export_spec_to_editable_pptx.mjs",
+    "build:template": "node scripts/build_parts_template.mjs",
+    "check": "python3 scripts/check_deck.py"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

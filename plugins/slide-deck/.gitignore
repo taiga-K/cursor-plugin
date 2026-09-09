@@ -1,0 +1,5 @@
+node_modules/
+generated/
+*.pptx
+!assets/*.pptx
+.DS_Store

@@ -18,6 +18,11 @@
       "name": "starter-advanced",
       "source": "./plugins/starter-advanced",
       "description": "Full-featured plugin with rules, skills, agents, commands, hooks, and MCP"
+    },
+    {
+      "name": "slide-deck",
+      "source": "./plugins/slide-deck",
+      "description": "Create and review consulting-quality PPTX decks from SlideSpec JSON"
     }
   ]
 }
