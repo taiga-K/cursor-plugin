@@ -1,0 +1,18 @@
+{
+  "name": "backend-chief",
+  "displayName": "Backend Chief",
+  "version": "0.1.0",
+  "description": "Go・Gin・DDD・クリーンアーキテクチャによるバックエンド構築を支援。PostgreSQL・MySQL・NoSQLを選択して設計・実装・検証します。",
+  "keywords": [
+    "backend",
+    "go",
+    "gin",
+    "ddd",
+    "clean-architecture",
+    "postgresql",
+    "mysql",
+    "nosql"
+  ],
+  "category": "developer-tools",
+  "skills": "./skills/"
+}

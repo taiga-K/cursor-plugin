@@ -13,6 +13,11 @@
       "name": "frontend-chief",
       "source": "./plugins/frontend-chief",
       "description": "TypeScript・Next.js・FSD・Atomic Design・Astryxによる画面とBFFの設計、実装、レビュー、検証を支援します。"
+    },
+    {
+      "name": "backend-chief",
+      "source": "./plugins/backend-chief",
+      "description": "Go・Gin・DDD・クリーンアーキテクチャによるバックエンド構築を支援。PostgreSQL・MySQL・NoSQLを選択して設計・実装・検証します。"
     }
   ]
 }

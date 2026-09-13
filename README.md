@@ -16,6 +16,17 @@ node plugins/frontend-chief/scripts/validate-content.ts
 node --test plugins/frontend-chief/scripts/validate-content.test.ts
 ```
 
+## Backend Chief
+
+[backend-chief](plugins/backend-chief/README.md) は、Go・Gin・DDD・クリーンアーキテクチャを採用する汎用バックエンド向けプラグインです。PostgreSQL・MySQL・NoSQLを利用者が選択し、業務モデル、API、永続化、ワーカー、移行プログラムの設計・実装・レビュー・検証を支援します。ログとWeb APIは指定のFuture設計ガイドラインに従います。
+
+入口は `/backend-chief`。クラウド資源やIAM、ネットワーク、配備の構築は別プラグインの責務とし、アプリケーションから必要な条件を引き渡します。
+
+```sh
+node plugins/backend-chief/scripts/validate-content.ts
+node --test plugins/backend-chief/scripts/validate-content.test.ts
+```
+
 ## Getting started
 
 [Use this template](https://github.com/cursor/plugin-template/generate) to create a new repository, then customize:
