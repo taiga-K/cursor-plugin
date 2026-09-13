@@ -1,0 +1,29 @@
+# Optional Chromatic visual review (free tier). Verified: 2026-09-12.
+# Requires CHROMATIC_PROJECT_TOKEN repository secret. Skip if unused.
+name: chromatic
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        # Prefer package.json#packageManager. Set version only when packageManager is absent.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # Pin a release tag when enabling; @latest is intentionally avoided.
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true

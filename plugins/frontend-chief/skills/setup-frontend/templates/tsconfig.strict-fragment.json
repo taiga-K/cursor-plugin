@@ -1,0 +1,12 @@
+# Target: TypeScript 5.x + Next.js App Router. Verified: 2026-09-12.
+# Merge into the project's tsconfig. Do not replace Next.js-generated options wholesale.
+{
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}

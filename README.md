@@ -2,10 +2,19 @@
 
 Build and publish Cursor Marketplace plugins from a single repo.
 
-Two starter plugins are included:
+## Frontend Chief
 
-- **starter-simple**: rules and skills only
-- **starter-advanced**: rules, skills, agents, commands, hooks, MCP, and scripts
+[frontend-chief](plugins/frontend-chief/README.md) は、TypeScript・Next.js App Router・FSD・Atomic Design・Astryxを採用するフロントエンド向けプラグインです。画面とNext.js内のBFFについて、チーフエンジニアの判断原則、作業手順、検証支援を提供します。
+
+防護は次の順です。(1) 型とアーキテクチャ (2) 静的解析・CI・テスト（証拠の正本は CI） (3) スキルとルール (4) 人間のプロンプト。フックで lint/test を代替しません。検証基盤は `setup-frontend` / `update-frontend` で導入・追従します。
+
+入口は `/frontend-chief`。Astryx公式のMCPサーバーを同梱し、UI部品の選定はMCPの検索と比較を前提にします。詳しい使い方はプラグインのREADMEを参照してください。
+
+```sh
+node scripts/validate-template.mjs
+node plugins/frontend-chief/scripts/validate-content.ts
+node --test plugins/frontend-chief/scripts/validate-content.test.ts
+```
 
 ## Getting started
 

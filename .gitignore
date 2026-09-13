@@ -12,3 +12,7 @@
 *.log
 tmp/
 temp/
+
+# Local reference material (not part of this marketplace)
+/docs/pstack-plugin-authoring-guide.ja.md
+/plugins/pstack/

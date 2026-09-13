@@ -1,0 +1,9 @@
+{
+  "name": "frontend-chief",
+  "displayName": "Frontend Chief",
+  "version": "0.1.0",
+  "description": "TypeScript・Next.js・FSD・Atomic Design・Astryxによる画面とBFFの設計、実装、レビュー、検証を支援します。",
+  "keywords": ["frontend", "typescript", "nextjs", "fsd", "atomic-design", "astryx", "bff"],
+  "category": "developer-tools",
+  "skills": "./skills/"
+}

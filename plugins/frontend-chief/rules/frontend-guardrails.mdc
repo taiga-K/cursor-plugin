@@ -1,0 +1,15 @@
+---
+description: CIで検出できないフロントエンドの防護。検証設定の緩和禁止、Astryx選定記録、server-only。
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+alwaysApply: false
+---
+
+# Frontend guardrails
+
+CI（typecheck / lint / Steiger / test / e2e）と重複する規約はここに書かない。
+
+1. 検証を通すために tsconfig・ESLint・Steiger・テストの期待値や設定を緩めない。どうしても必要なら理由と期限を差分に残す。
+2. Astryx 部品を新たに使う・変えるときは、設計に選定記録（役割・候補比較・確認元と版）がない状態で実装に入らない。手順はプラグインの Astryx 選定参照に従う。
+3. BFF・セッション・秘密情報を扱うモジュールに `import "server-only"` がないコードを追加しない。Server Components から自前の Route Handler へ HTTP 往復しない。

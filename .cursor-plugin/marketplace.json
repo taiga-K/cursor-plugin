@@ -5,24 +5,14 @@
     "email": "plugins@example.com"
   },
   "metadata": {
-    "description": "Starter marketplace template for Cursor plugins",
+    "description": "Cursor plugins for engineering workflows",
     "version": "0.1.0"
   },
   "plugins": [
     {
-      "name": "starter-simple",
-      "source": "./plugins/starter-simple",
-      "description": "Minimal plugin with rules and skills only"
-    },
-    {
-      "name": "starter-advanced",
-      "source": "./plugins/starter-advanced",
-      "description": "Full-featured plugin with rules, skills, agents, commands, hooks, and MCP"
-    },
-    {
-      "name": "slide-deck",
-      "source": "./plugins/slide-deck",
-      "description": "Create and review consulting-quality PPTX decks from SlideSpec JSON"
+      "name": "frontend-chief",
+      "source": "./plugins/frontend-chief",
+      "description": "TypeScript・Next.js・FSD・Atomic Design・Astryxによる画面とBFFの設計、実装、レビュー、検証を支援します。"
     }
   ]
 }
