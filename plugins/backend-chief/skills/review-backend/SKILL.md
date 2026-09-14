@@ -12,8 +12,8 @@ description: Go・Ginバックエンドの差分や設計をレビューする�
 ## 手順
 
 1. 変更された振る舞いと利用者影響を把握し、[調査](../assess-backend/SKILL.md)で必要な周辺実装を確認する。
-2. [レビュー観点](../../references/review-checklist.md)と[原則索引](../../principles/index.md)から対象に関係する内容を選ぶ。
-3. [DB選択](../../references/database-selection.md)の専用スキルをレビューとして適用する。取引の接続、競合、索引、移行、製品ごとの保証を確認する。
+2. [レビュー観点](../../references/review-checklist.md)と[原則索引](../../principles/index.md)から対象に関係する内容を選ぶ。業務モデル・型・責務の変更では[モデリング](../../references/domain-modeling.md)と[Domain実装](../../references/domain-implementation.md)で具体例、所有権、再構成、集約の契約を確認する。配置の推奨との差だけで違反と判定しない。
+3. Goコードは[go-coding](../go-coding/SKILL.md)をレビューとして適用し、採用版、命名・エラー・所有権・並行処理等を確認する。永続化が関係する場合は[DB選択](../../references/database-selection.md)の専用スキルもレビューとして適用する。取引の接続、競合、索引、移行、製品ごとの保証を確認する。
 4. APIの互換性、認可・tenant境界、エラーとログ、再試行時の副作用を具体的な入力・停止位置から追う。
 5. 実行可能な既存チェックを走らせるか結果を確認し、未実行を明記する。指摘は再現条件・影響・根拠・修正案と必要な検証を添える。
 

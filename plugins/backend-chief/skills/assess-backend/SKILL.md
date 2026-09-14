@@ -12,7 +12,7 @@ description: 既存Goバックエンドの構造・契約・データフロー�
 ## 手順
 
 1. ローカル指示、未コミット変更、go.mod/go.work、Gin、DB設定、migration、OpenAPI、CIを確認する。資格情報を出力しない。
-2. 入口からApplication・Domain・Adapterまで実行経路を追い、[構成](../../references/architecture.md)と現状の責務を対応させる。
+2. 入口からApplication・Domain・Adapterまで実行経路を追い、[構成](../../references/architecture.md)と現状の責務を対応させる。業務変更では[モデルの具体例](../../references/domain-modeling.md)とコード・テストの対応を確認し、Repository、入出力、生成/再構成の所有先を調べる。
 3. [DB選択](../../references/database-selection.md)から採用済みのDB手順だけを読み、製品・版・正本・原子性・テスト環境を確認する。
 4. 不具合は対象のHTTP/worker/DB操作で再現し、観測と仮説を分ける。性能は件数・負荷・実行計画を伴う証拠を集める。
 5. 指定[API](../../references/web-api.md)・[ログ](../../references/logging.md)への適合と、インフラに依存する未確認事項を整理する。

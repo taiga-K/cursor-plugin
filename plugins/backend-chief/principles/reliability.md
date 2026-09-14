@@ -18,7 +18,7 @@ outboxは業務更新と同一原子単位に記録する。送信後・送信�
 
 ## 例外・案件判断
 
-メッセージ基盤の作成は対象外。非同期化そのものは業務上必要な時だけ選び、in-process goroutineを耐久キューと扱わない。
+Domain Eventは業務上の出来事であり、同期処理でも使える。[イベントの判断](../references/domain-implementation.md)でTx内・commit後・外部配送を区別し、Domainの内部型を配送契約として直接公開しない。メッセージ基盤の作成は対象外。非同期化そのものは業務上必要な時だけ選び、in-process goroutineを耐久キューと扱わない。
 
 ## 検証方法
 

@@ -12,7 +12,7 @@ description: DBスキーマ、DB製品、Goアーキテクチャの移行を設�
 ## 手順
 
 1. [assess-backend](../assess-backend/SKILL.md)でコード・データ・consumer・既存移行手順を調べる。
-2. [移行原則](../../principles/evolution.md)と[DB選択](../../references/database-selection.md)で新旧の差、変換不能値、整合性、混在期間を設計する。
+2. [移行原則](../../principles/evolution.md)と[DB選択](../../references/database-selection.md)で新旧の差、変換不能値、整合性、混在期間を設計する。[再構成の契約](../../references/domain-implementation.md)を確認し、新しい不変条件が旧版データを読めなくしないか判断する。
 3. expand/backfill/切替/contractの必要性を判断し、再開点・二重書込の扱い・照合・打切り・復旧方法を記録する。
 4. コードとmigrationを実装し、使い捨て環境で途中失敗と再実行を検証する。MySQL DDLやNoSQLの原子性をRDB共通とみなさない。
 5. [verify-backend](../verify-backend/SKILL.md)で旧新の契約と不変条件を確認し、適用条件・順序を[インフラ側](../../references/infrastructure-handoff.md)へ引き渡す。

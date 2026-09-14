@@ -12,7 +12,7 @@ description: MySQLを選んだGoバックエンドの永続化を設計・実装
 ## 手順
 
 1. [DB選択](../../references/database-selection.md)で利用者の選択を確認し、[MySQL専用資料](../../references/databases/mysql.md)を読む。未採用DBを同時導入しない。
-2. 既存の製品・版・ドライバ・schema・索引・実行環境を調べ、既存の設定・設計記録に実際の能力を記録する。NoSQLは製品まで確定して該当製品の資料を読む。
+2. 既存の製品・版・ドライバ・schema・索引・実行環境を調べ、既存の設定・設計記録に実際の能力を記録する。
 3. 専用資料の手順でInnoDB・照合順序・gap/next-key lock・RowsAffected・DDL暗黙commitを確認し、[整合性](../../principles/consistency.md)を保証する具体的な操作を設計する。
 4. 実装依頼ならAdapterと移行コード、実DBテストを作る。レビュー依頼なら同じ観点で差分と証拠を評価し、勝手に変更しない。
 5. [テスト戦略](../../references/testing.md)で並行性・制約・失敗・型変換を検証する。結果を[検証スキル](../verify-backend/SKILL.md)へ渡す。
@@ -23,7 +23,7 @@ description: MySQLを選んだGoバックエンドの永続化を設計・実装
 
 ## 情報不足
 
-製品固有のAPIや整合性が不明なら公式資料と採用版を調べる。NoSQL製品未選択は候補と選定基準を提示して確認する。実DB未実行を明記する。
+製品固有のAPIや整合性が不明なら公式資料と採用版を調べる。実DB未実行を明記する。
 
 ## 完了条件
 

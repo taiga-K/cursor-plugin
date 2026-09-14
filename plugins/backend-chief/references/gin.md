@@ -15,7 +15,7 @@ SetTrustedProxies等で信頼するproxyを明示する。全proxyを無条件�
 1. bodyサイズ制限、Content-Type、path/query/bodyの構文を検証する。
 2. ShouldBind系など、応答を自動確定しないAPIを選び、[Problem Details](web-api.md)へ統一する。requiredタグと数値0/falseの扱いを確認する。
 3. 認証middlewareから得た型付き主体と検証済み入力をApplicationへ渡す。主体の型assertion失敗を成功扱いしない。
-4. c.Request.Context()を渡す。gin.Context、HTTP status、DTOをDomain/Applicationへ渡さない。
+4. c.Request.Context()を渡す。gin.Context、HTTP status、HTTP固有のrequest/response DTOをDomain/Applicationへ渡さない。Application自身が定義する入力DTOへ変換して渡すことはできる。
 5. Applicationの結果を応答DTOへ変換する。errorは一箇所で分類し、応答を一度だけ書く。
 
 Handlerから直接SQLを書かない。認可をmiddlewareだけで完了したとみなさない。汎用ShouldBindで入力元が曖昧になる場合はJSON/query等を明示する。

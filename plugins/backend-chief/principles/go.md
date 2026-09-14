@@ -2,11 +2,11 @@
 
 ## 適用条件
 
-Goコード全般、goroutine、入力変換。
+Goコード全般、goroutine、入力変換。実装・修正・レビューの具体手順は[go-coding](../skills/go-coding/SKILL.md)へ進み、必要な分野だけ読む。
 
 ## 判断基準
 
-ゼロ値と未指定を区別する。constructorと非公開フィールドで不変条件を守り、DB復元時も検証する。エラーを握り潰さず、errors.Is/Asで分類できるようwrapする。想定内の失敗はerror、panicは制御フローにしない。context.ContextはI/Oの先頭引数へ伝播し、共有structへ保存しない。goroutineは開始元が終了・回収・並列数を所有する。
+ゼロ値と未指定を区別する。constructor・公開操作・非公開フィールドで不変条件を守る。[Domain実装](../references/domain-implementation.md)に従い、新規生成と再構成を区別し、復元時に守る条件と旧版データの扱いを決める。VOの等価性と不変性を定義し、slice/map/pointerの参照共有による外部変更を防ぐ。エラーを握り潰さず、公開する原因はerrors.Is/Asで分類できるよう保持する。境界で隠す外部詳細は契約エラーへ変換する。想定内の失敗はerror、panicは制御フローにしない。context.ContextはI/Oの先頭引数へ伝播し、共有structへ保存しない。goroutineは開始元が終了・回収・並列数を所有する。
 
 ## 理由
 
@@ -18,7 +18,7 @@ Goの型だけでは負数、無効なenum、ゼロ値、typed nilを排除で�
 
 ## 例外・案件判断
 
-pureなDomainの演算へcontextを形式的に追加しない。同期APIのdeadline方針はAPI規約を優先する。ID形式やdecimalライブラリは案件判断。
+変更対象の命名・宣言・制御構文は[Goコーディング標準](../skills/go-coding/SKILL.md)へ揃え、公開互換性と採用版を守る。pureなDomainの演算へcontextを形式的に追加しない。同期APIのdeadline方針はAPI規約を優先する。ID形式やdecimalライブラリは案件判断。
 
 ## 検証方法
 

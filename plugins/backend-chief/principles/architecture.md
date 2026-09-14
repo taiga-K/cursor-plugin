@@ -6,7 +6,7 @@
 
 ## 判断基準
 
-ソース依存を内側へ向ける。DomainはGin・SQL・NoSQL SDK・ログ基盤に依存しない。Applicationは用途に必要な小さいportを所有し、Adapterが実装する。起動処理で実装を組み立てる。HTTP DTO、DBレコード、Domainを分け、gin.Contextを外へ渡さない。
+ソース依存を内側へ向ける。DomainはGin・SQL・NoSQL SDK・ログ基盤に依存しない。集約のRepository契約はDomain、ユースケース固有のQuery・Tx管理・通知等のportはApplication所有を基本とし、Adapterが実装する。起動処理で実装を組み立てる。HTTP DTO、Applicationの入出力、DBレコード、Domainの所有関係を分け、gin.Contextを外へ渡さない。
 
 ## 理由
 
@@ -14,11 +14,11 @@
 
 ## 具体例
 
-注文ApplicationにReserveStock(ctx, ...)のportを置き、PostgreSQLかMySQLのAdapterを接続する。ドライバのTxをApplicationへ露出させない。
+注文のRepository契約をDomain、UnitOfWorkと注文検索の契約をApplicationへ置き、選択したDBのAdapterを接続する。Domain ServiceがRepositoryを使う場合も内側の契約へ依存し、ドライバのTxをDomain/Applicationへ露出させない。
 
 ## 例外・案件判断
 
-このディレクトリ名は本プラグインの推奨。既存名を維持してよい。interfaceは差し替えが必要な境界に置き、すべてのstructに一対一で作らない。
+ディレクトリ名は推奨例で、既存名を維持してよい。Application所有のRepositoryを使い、取得した情報を純粋なDomainの判断へ渡す方式も選べる。既存方式を配置だけで違反とせず、集約契約と依存方向を確認する。interfaceは依存逆転や差し替えに必要な境界へ置き、全structに一対一で作らない。
 
 ## 検証方法
 

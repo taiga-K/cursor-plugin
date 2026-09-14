@@ -5,7 +5,7 @@
 ## 工程
 
 1. [調査](../../assess-backend/SKILL.md)で契約と実行経路を確認する。
-2. [設計](../../design-backend/SKILL.md)で不変条件、認可、取引、失敗、DBとAPIの互換性を決める。
+2. [設計](../../design-backend/SKILL.md)で業務の具体例とモデルを確認し、不変条件、認可、取引、失敗、DBとAPIの互換性を決める。実装で発見があればモデルとテストにも反映する。
 3. [実装](../../implement-backend/SKILL.md)でDomainから一つの経路を完成させる。移行が必要なら先に新旧互換の順を決める。
 4. [レビュー](../../review-backend/SKILL.md)で境界・競合・漏洩を確認し、[検証](../../verify-backend/SKILL.md)の結果を受入条件へ対応させる。
 

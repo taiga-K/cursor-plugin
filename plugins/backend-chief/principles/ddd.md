@@ -6,7 +6,9 @@
 
 ## 判断基準
 
-ユビキタス言語と境界づけられたコンテキストを定義する。Entityは同一性、Value Objectは値と不変条件を表す。集約は同時に守る整合性の境界から決め、テーブル単位で機械的に切らない。状態変更は集約のメソッドを通す。Domain ServiceはEntityに自然に属さない業務判断だけに使う。Application Serviceは手順・認可・取引境界を調整する。
+具体例とドメインエキスパートの知識から、用語・ルール・モデルの適用範囲を確かめる。未決事項を推測で確定せず、モデルとコードを継続して更新する。[モデリング](../references/domain-modeling.md)で集約の不変条件、件数、競合、変更のまとまりを比較する。
+
+EntityはIDによる同一性、Value Objectは値による等価性と不変性を持つ。変更は集約ルートを通し、Repositoryは集約単位の取得・保存を表す。自然な所有先のない業務判断はDomain Service、複雑な生成はFactory、操作の調整・認可・Tx境界はApplicationへ置く。[実装判断](../references/domain-implementation.md)で使い分ける。
 
 ## 理由
 
@@ -18,10 +20,10 @@
 
 ## 例外・案件判断
 
-単純な参照は専用Query ServiceとDTOでよい。全参照で集約を復元しない。CQRSの読み書き分離は選択肢であり、別DBやEvent Sourcingを必須にしない。
+参照に集約の復元が必要かを判断し、複数集約のJOIN・絞込・ページング等には[Query Service](../references/architecture.md)を比較する。CQRSは部分的に採用でき、別DBやEvent Sourcingを必須にしない。全プリミティブのVO化、全機能のDomain Service化、全種類のモデル図作成を強制しない。
 
 ## 検証方法
 
-不正な状態遷移・境界値の単体テスト、複数入口からの同じ振る舞い、集約境界とトランザクションの一致を確認する。
+生成・変更・再構成、同一性・等価性・参照漏出、集約の保存復元を[テスト](../references/testing.md)で確認する。集約内部の不変条件を原子的に守ることと、複数集約を同じTxに含める採用判断を分ける。
 
 [原則索引](index.md) / [構成例](../references/architecture.md) / [公式資料](../references/sources.md) / [設計スキル](../skills/design-backend/SKILL.md)
